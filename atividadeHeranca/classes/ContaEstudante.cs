@@ -8,23 +8,23 @@ namespace atividadeHeranca.classes
 {
     internal class ContaEstudante:Conta
     {
-        public double limiteChequeEspecial { get; set; }
-        public string cpf { get; set; }
-        public string nomeInstituicao { get; set; }
+        public double LimiteChequeEspecial { get; set; }
+        public string Cpf { get; set; }
+        public string NomeInstituicao { get; set; }
 
         public ContaEstudante(int numeroConta, string agencia, string titularConta, double saldoConta, 
             double limiteChequeEspecial, string cpf, string nomeInstituicao)
            : base(numeroConta, agencia, titularConta, saldoConta)
         {
-            this.limiteChequeEspecial = limiteChequeEspecial;
-            this.cpf = cpf;
-            this.nomeInstituicao = nomeInstituicao;
+            this.LimiteChequeEspecial = limiteChequeEspecial;
+            this.Cpf = cpf;
+            this.NomeInstituicao = nomeInstituicao;
         }
         public override void Sacar(double valor)
         {
-            if(valor <= saldoConta + limiteChequeEspecial) 
+            if(valor <= SaldoConta + LimiteChequeEspecial) 
             {
-                saldoConta -= valor;
+                SaldoConta -= valor;
                 Console.WriteLine($"Saque de R${valor} realizado com sucesso.");
             }
             else

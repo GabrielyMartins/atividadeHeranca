@@ -8,24 +8,24 @@ namespace atividadeHeranca.classes
 {
     internal class Conta
     {
-        public int numeroConta { get; set; }
-        public string agencia { get; set; }
-        public string titularConta { get; set;}
-        public double saldoConta { get; set; }
+        public int NumeroConta { get; set; }
+        public string Agencia { get; set; }
+        public string TitularConta { get; set;}
+        public double SaldoConta { get; set; }
 
         public Conta(int numeroConta, string agencia, string titularConta, double saldoConta)
         {
-            this.numeroConta = numeroConta;
-            this.agencia = agencia;
-            this.titularConta = titularConta;
-            this.saldoConta = saldoConta;
+            this.NumeroConta = numeroConta;
+            this.Agencia = agencia;
+            this.TitularConta = titularConta;
+            this.SaldoConta = saldoConta;
         }
 
         public virtual void Sacar(double valor)
         {
-            if (valor <= saldoConta)
+            if (valor <= SaldoConta)
             {
-                saldoConta -= valor;
+                SaldoConta -= valor;
                 Console.WriteLine($"Saque de R${valor} realizado com sucesso.");
             }
             else
@@ -36,8 +36,13 @@ namespace atividadeHeranca.classes
         }
         public void Deposito(double valor) 
         {
-            saldoConta += valor;
-            Console.WriteLine($"Depósito de {valor} realizado com sucesso.");
+            if (valor >= 0)
+            {
+                SaldoConta += valor;
+                Console.WriteLine($"Depósito de {valor} realizado com sucesso."); 
+            }
+
+            
         }
     }
 }

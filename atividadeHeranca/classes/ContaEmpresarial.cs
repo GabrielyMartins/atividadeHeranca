@@ -9,24 +9,24 @@ namespace atividadeHeranca.classes
 {
     internal class ContaEmpresarial:Conta
     { 
-        public double taxaAnuidade { get; set; }
-        public double limiteEmprestimo { get; set; }
-        public double totalEmprestimo { get; set; }
+        public double TaxaAnuidade { get; set; }
+        public double LimiteEmprestimo { get; set; }
+        public double TotalEmprestimo { get; set; }
 
         public ContaEmpresarial(int numeroConta, string agencia, string titularConta, double saldoConta,
             double taxaAnuidade, double limiteEmprestimo)
            : base(numeroConta, agencia, titularConta, saldoConta)
         {
-            this.taxaAnuidade = taxaAnuidade;
-            this.limiteEmprestimo = limiteEmprestimo;
-            totalEmprestimo = 0;
+            this.TaxaAnuidade = taxaAnuidade;
+            this.LimiteEmprestimo = limiteEmprestimo;
+            TotalEmprestimo = 0;
         }
         public void RealizarEmprestimo(double valor)
         {
-            if (valor <= limiteEmprestimo)
+            if (valor <= LimiteEmprestimo - TotalEmprestimo)
             {
-                saldoConta += valor;
-                totalEmprestimo += valor;
+                SaldoConta += valor;
+                TotalEmprestimo += valor;
                 Console.WriteLine($"Empréstimo de R$ {valor} realizado com sucesso.");
             }
             else
@@ -43,9 +43,9 @@ namespace atividadeHeranca.classes
             }
             else
             {
-                if (valor + 5 <= saldoConta)
+                if (valor + 5 <= SaldoConta)
                 {
-                    saldoConta -= (valor + 5);
+                    SaldoConta -= (valor + 5);
                     Console.WriteLine($"Saque de R$ {valor} realizado com sucesso (taxa de R$5,00 aplicada.");
                 }
                 else
