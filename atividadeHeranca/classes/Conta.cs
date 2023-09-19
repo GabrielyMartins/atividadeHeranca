@@ -26,7 +26,7 @@ namespace atividadeHeranca.classes
             if (valor <= SaldoConta)
             {
                 SaldoConta -= valor;
-                Console.WriteLine($"Saque de R${valor} realizado com sucesso.");
+                Console.WriteLine($"Saque de R$ {valor} realizado com sucesso.");
             }
             else
             {
